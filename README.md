@@ -1,10 +1,10 @@
 # Сгенерировать один раз
 python -c "import secrets; import base64; print(base64.urlsafe_b64encode(secrets.token_bytes(32)).decode())"
 
-# Полученное значение установить в AIRFLOW__CORE__FERNET_KEY
+# Полученное значение установить в 
+AIRFLOW__CORE__FERNET_KEY
 
 # После выполнить:
-
 docker-compose up airflow-init
 
 docker-compose up
@@ -21,9 +21,9 @@ docker compose down
 
 docker-compose up
 
-# из https://github.com/bryzgaloff/airflow-clickhouse-plugin взять содержимое airflow-clickhouse-plugin
-# и положить в dags
+из https://github.com/bryzgaloff/airflow-clickhouse-plugin взять содержимое airflow-clickhouse-plugin
+и положить в dags
 
-# папки clickhouse_data и config удалить
+папки clickhouse_data и config удалить
 
-# connection для clickhouse в airflow-apiserver через HTTP
+connection для clickhouse в airflow-apiserver через HTTP
