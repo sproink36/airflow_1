@@ -1,5 +1,5 @@
 from airflow import DAG
-from airflow.providers.postgres.operators.postgres import PostgresOperator
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from datetime import datetime, timedelta
 
 
@@ -22,9 +22,9 @@ with DAG(
     schedule="@once",
     catchup=False,
 ) as dag:
-    create_pet_table = PostgresOperator(
+    create_pet_table = SQLExecuteQueryOperator(
         task_id="create_pet_table",
-        postgres_conn_id="postgres_local_test",
+        conn_id="postgres_local_test",
         sql="""
             CREATE TABLE IF NOT EXISTS pet (
             pet_id INT NOT NULL PRIMARY KEY,
@@ -35,9 +35,9 @@ with DAG(
           """
     )
 
-    insert_to_pet_table = PostgresOperator(
+    insert_to_pet_table = SQLExecuteQueryOperator(
         task_id="insert_to_pet_table",
-        postgres_conn_id="postgres_local_test",
+        conn_id="postgres_local_test",
         sql="""
             INSERT INTO pet (pet_id, name, pet_type, birth_date, owner)
             VALUES (1, 'Max', 'Dog', '2018-07-05', 'Jane');
@@ -50,9 +50,9 @@ with DAG(
             """
     )
 
-    delete_from_pet_table = PostgresOperator(
+    delete_from_pet_table = SQLExecuteQueryOperator(
         task_id="delete_from_pet_table",
-        postgres_conn_id="postgres_local_test",
+        conn_id="postgres_local_test",
         sql="""
             DELETE FROM pet WHERE pet_id <= 4
             """
