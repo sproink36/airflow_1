@@ -36,8 +36,7 @@ def run_clickhouse_basic_operaions():
         .getOrCreate()
 
    # JDBC URL for connection to ClickHouse
-    jdbc_url = f"jdbc:clickhouse://{CLICKHOUSE_HOST_NAME}:{
-        CLICKHOUSE_PORT}/{CLICKHOUSE_DBNAME}"
+    jdbc_url = f"jdbc:clickhouse://{CLICKHOUSE_HOST_NAME}:{CLICKHOUSE_PORT}/{CLICKHOUSE_DBNAME}"
     jdbc_properties = {
         "driver": "com.clickhouse.jdbc.ClickHouseDriver",
         "user": CLICKHOUSE_USERNAME,

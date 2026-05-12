@@ -28,7 +28,7 @@ with DAG(
         dag_id="test_bash_and_python_operator_dag",
         start_date=datetime(2024, 12, 1),
         default_args=default_args,
-        schedule_interval="@hourly",
+        schedule="@hourly",
         catchup=True) as dag:
 
     task_1 = BashOperator(

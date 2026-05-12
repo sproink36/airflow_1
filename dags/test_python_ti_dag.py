@@ -32,7 +32,7 @@ with DAG(
         dag_id="test_python_ti_dag",
         start_date=datetime(2024, 12, 1),
         default_args=default_args,
-        schedule_interval="7 * * * *") as dag:
+        schedule="7 * * * *") as dag:
 
     task_1 = PythonOperator(
         task_id='say_hello',
