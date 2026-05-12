@@ -4,4 +4,4 @@ airflow-providers-clickhouse==0.0.1
 pyspark==3.5.4
 findspark==2.0.1
 py4j==0.10.9.7
-
+airflow-clickhouse-plugin==1.7.0

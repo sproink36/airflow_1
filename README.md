@@ -17,3 +17,5 @@ python -c "import secrets; import base64; print(base64.urlsafe_b64encode(secrets
 из https://github.com/bryzgaloff/airflow-clickhouse-plugin взять содержимое airflow-clickhouse-plugin
     и положить в dags
     папки clickhouse_data и config удалить
+
+connection для clickhouse в airflow-apiserver через HTPP 
