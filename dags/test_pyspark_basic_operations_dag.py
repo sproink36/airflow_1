@@ -2,7 +2,6 @@ from pyspark.sql.functions import when, col, lit, split, filter, explode, array,
 from pyspark.sql import SparkSession
 from pyspark.sql.types import IntegerType, StringType, StructField, StructType, MapType, ArrayType, BooleanType
 from airflow import DAG
-from airflow.utils.dates import days_ago
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 import findspark
@@ -12,7 +11,7 @@ findspark.init()
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': days_ago(2),
+    'start_date': datetime(2025, 1, 1),
     'email': ['testmail@gmail.com'],
     'email_on_failure': False,
     'email_on_retry': False,

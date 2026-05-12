@@ -1,11 +1,10 @@
 from airflow.decorators import dag, task
-from airflow.utils.dates import days_ago
 from datetime import datetime, timedelta
 
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': days_ago(2),
+    'start_date': datetime(2025, 1, 1),
     'email': ['testmail@gmail.com'],
     'email_on_failure': False,
     'email_on_retry': False,
